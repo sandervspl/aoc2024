@@ -4,6 +4,7 @@ import * as prettier from 'prettier';
 // Get current date day
 const now = new Date();
 const day = now.getDate();
+const year = process.env.YEAR;
 
 if (fs.existsSync(`./days/${day}`)) {
   console.log(`\n"days/${day}" already exists\n`);
@@ -16,8 +17,8 @@ fs.mkdirSync(dir);
 
 const prettierConfig = await import('../prettier.config.mjs').then((m) => m.default);
 
-console.log(`Fetching input from adventofcode.com/${process.env.YEAR}...`);
-const response = await fetch(`https://adventofcode.com/${process.env.YEAR}/day/${day}/input`, {
+console.log(`Fetching input from adventofcode.com/${year}...`);
+const response = await fetch(`https://adventofcode.com/${year}/day/${day}/input`, {
   headers: {
     cookie: `session=${process.env.SESSION}`,
   },
@@ -35,7 +36,7 @@ for await (const part of [1, 2]) {
   const partAnchor = part == 2 ? '#part2' : '';
   const content = `
   /**
-   * https://adventofcode.com/${process.env.YEAR}/day/${day}${partAnchor}
+   * https://adventofcode.com/${year}/day/${day}${partAnchor}
    */
     import "services/array";
     import "services/math";
@@ -51,6 +52,7 @@ for await (const part of [1, 2]) {
   await Bun.write(file, formatted);
 }
 
-console.log(`\nCreated files for "days/${day}"!\n`);
+console.log(`\nCreated files for "days/${day}"!`);
+console.log(`https://adventofcode.com/${year}/day/${day}\n`);
 
 process.exit(0);
