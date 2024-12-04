@@ -10,10 +10,14 @@
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
+    "@types/lodash": "^4.17.13",
     "bun-types": "^1.1.38",
     "prettier": "^3.4.1",
     "typescript": "^5.7.2"
   },
   "module": "index.ts",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }
