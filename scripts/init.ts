@@ -38,6 +38,7 @@ for await (const part of [1, 2]) {
   /**
    * https://adventofcode.com/${year}/day/${day}${partAnchor}
    */
+    import _ from 'lodash';
     import "services/array";
     import "services/math";
     import "services/input-file";
