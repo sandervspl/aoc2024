@@ -2,6 +2,7 @@ interface Array<T> {
   first(): T;
   last(): T;
   middle(): T;
+  range(): number[];
 }
 
 Array.prototype.first = function first() {
@@ -14,4 +15,8 @@ Array.prototype.last = function last() {
 
 Array.prototype.middle = function middle() {
   return this[Math.floor(this.length / 2)];
+};
+
+Array.prototype.range = function middle() {
+  return Array.from(this).map((_, i) => i);
 };

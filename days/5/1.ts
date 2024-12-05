@@ -1,8 +1,6 @@
 /**
  * https://adventofcode.com/2024/day/5
  */
-import _ from 'lodash';
-
 import 'services/array';
 import 'services/math';
 import 'services/input-file';
@@ -16,11 +14,11 @@ const input = data[1]!.split('\n');
 
 let answer = 0;
 
-for (const i of _.range(input.length)) {
+for (const i of input.range()) {
   let valid = true;
   const row = input[i]!.split(',').map(Number);
 
-  for (const j of _.range(row.length)) {
+  for (const j of row.range()) {
     const first = row[j];
     const second = row[j + 1];
 
