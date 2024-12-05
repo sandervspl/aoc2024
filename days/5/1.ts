@@ -10,13 +10,13 @@ const rules = data[0]!
   .split('\n')
   .map((r) => r.split('|'))
   .map((r) => r.map(Number));
-const input = data[1]!.split('\n');
+const input = data[1]!.split('\n').map((v) => v.split(',').map(Number));
 
 let answer = 0;
 
 for (const i of input.range()) {
   let valid = true;
-  const row = input[i]!.split(',').map(Number);
+  const row = input[i]!;
 
   for (const j of row.range()) {
     const first = row[j];
