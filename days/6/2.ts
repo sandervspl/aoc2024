@@ -89,7 +89,7 @@ function run(field: string[][], guard: Guard) {
 
 for (const y of field.range()) {
   for (const x of field[y]!.range()) {
-    if (field[y]![x] === '^') continue;
+    if (field[y]![x] === '^' || field[y]![x] === '#') continue;
 
     const fieldCopy = [...field].map((l) => [...l]);
     fieldCopy[y]![x] = 'O';
