@@ -3,7 +3,7 @@ import * as prettier from 'prettier';
 
 // Get current date day
 const now = new Date();
-const day = now.getDate();
+const day = process.argv[2] ? parseInt(process.argv[2]) : new Date().getDate();
 const year = process.env.YEAR;
 
 if (fs.existsSync(`./days/${day}`)) {
